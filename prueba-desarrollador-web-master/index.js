@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-var array_keys = [];
-var intera = 0;
-var level = 0;
-var tecleo_level = [];
+var array_keys = [];//array de las teclas a seleccionar
+var intera = 0; //interacción para iniciar
+var level = 0; //nivel actual del juego
+var tecleo_level = []; // array de las selecciones del usuario
 class juego{
     
     /*
@@ -47,7 +47,7 @@ class juego{
         } 
     }
     /*
-     * Guardar en array las selecciones
+     * Guardar en array las selecciones del usuario
      * @param {int} t
      * @returns {Generator}
      */
@@ -101,6 +101,8 @@ class juego{
     
     remove_func(){
         document.getElementsByTagName('body')[0].removeAttribute("onkeydown");
+        var keys = document.getElementsByClassName('key');
+        for(var i = 0; i<keys.length; i++) keys[i].removeAttribute("onclick");
     }
     add_func(){
         document.getElementsByTagName('body')[0].setAttribute("onkeydown", "ju.interaccion_tecla(event);");
